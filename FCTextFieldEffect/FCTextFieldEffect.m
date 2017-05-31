@@ -25,7 +25,7 @@
     
     [self addPlaceHolderLabel];
     wrongLayer.frame = CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 0);
-    leftLayer.frame = CGRectMake(0, self.bounds.size.height-3, self.bounds.size.width, 3);
+    leftLayer.frame = CGRectMake(0, self.bounds.size.height-1.5, self.bounds.size.width, 1.5);
     
     leftLayer.backgroundColor = self.lineColor.CGColor;
     wrongLayer.borderColor = [UIColor clearColor].CGColor;
@@ -53,11 +53,11 @@
         
         
         wrongLayer=[[CALayer alloc] init];
-        wrongLayer.borderWidth=3.0f;
-//        self.backgroundColor=[UIColor blueColor];
+        wrongLayer.borderWidth=1.5f;
+        //        self.backgroundColor=[UIColor blueColor];
         
-//        [self addTarget: action:@selector(textBeginEditing:) forControlEvents:UIControlEventEditingDidBegin];
-//        [self addTarget: action:@selector(textEndEditing:) forControlEvents:UIControlEventEditingDidEnd];
+        //        [self addTarget: action:@selector(textBeginEditing:) forControlEvents:UIControlEventEditingDidBegin];
+        //        [self addTarget: action:@selector(textEndEditing:) forControlEvents:UIControlEventEditingDidEnd];
         
     }
     
@@ -67,23 +67,23 @@
 - (void)wrongAnimation{
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
         wrongLayer.borderColor = self.wrongColor.CGColor;
-        wrongLayer.frame = CGRectMake(0, 20, self.bounds.size.width, self.bounds.size.height-20);
+        wrongLayer.frame = CGRectMake(0, 23, self.bounds.size.width, self.bounds.size.height-23);
         leftLayer.frame = CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 0);
     } completion:^(BOOL finished) {
         [self performSelector:@selector(delayMethod:) withObject:self afterDelay:1];
-
+        
     }];
 }
 - (void)delayMethod:(id)sender{
     wrongLayer.borderColor = [UIColor clearColor].CGColor;
     wrongLayer.frame = CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 0);
-    leftLayer.frame = CGRectMake(0, self.bounds.size.height-3, self.bounds.size.width, 3);
+    leftLayer.frame = CGRectMake(0, self.bounds.size.height-1.5, self.bounds.size.width, 1.5);
 }
 -(void)setPlaceholderHeight:(CGFloat)placeholderHeight{
     
 }
 //- (CGRect)rightViewRectForBounds:(CGRect)bounds {
-//    
+//
 //    CGRect textRect = [super rightViewRectForBounds:bounds];
 //    textRect.origin.x -= 10;
 //    return textRect;
@@ -91,7 +91,7 @@
 - (void)addPlaceHolderLabel
 {
     self.placeHolderLabel.font = self.placeHolderFont;
-    self.placeHolderLabel.frame=CGRectMake(0, self.bounds.size.height-23, self.bounds.size.width, 20);
+    self.placeHolderLabel.frame=CGRectMake(0, self.bounds.size.height-28, self.bounds.size.width, 20);
     [self addSubview:self.placeHolderLabel];
 }
 
@@ -116,7 +116,7 @@
     [UIView animateWithDuration:0.5 delay:0.2 options:0 animations:^{
         self.placeHolderLabel.frame=CGRectMake(0, 0, self.bounds.size.width, 20);
         self.placeHolderLabel.font = [UIFont systemFontOfSize:15.0];
-
+        
     } completion:^(BOOL finished) {
         
     }];
@@ -134,7 +134,7 @@
     if([textField.text isEqual:@""]){
         [UIView animateWithDuration:0.5 animations:^{
             
-            self.placeHolderLabel.frame=CGRectMake(0, self.bounds.size.height-23, self.bounds.size.width, 20);
+            self.placeHolderLabel.frame=CGRectMake(0, self.bounds.size.height-28, self.bounds.size.width, 20);
             self.placeHolderLabel.font = self.placeHolderFont;
             
         }];
